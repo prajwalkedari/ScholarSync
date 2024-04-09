@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <title>Nord Note</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <nav class="navbar border-bottom border-body navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Note App</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Branch
+          </a> </li>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+
+
+                  <form class="d-flex " role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search as {{name}} " aria-label="Search">
+
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                  </form>
+            </ul>
+
+          </div>
+          <div ><button type="button" style='display:none;' id='else-part' class="btn btn-outline-primary p-2 mx-5"    data-bs-toggle="modal" data-bs-target="#exampleModal">Upload</button>
+
+<button type="button" id='if-part'  style='display:none;' class="btn btn-outline-primary p-2 mx-5"  data-bs-target="login" onclick="open_win()">login</button>
+          </div>
+
+      </nav>
+        </div>
+</nav>
+
+      <br>
+      <table class="table table-hover table-success table-striped" table-sm">
+        <thead class="table-primary">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Sem</th>
+            <th scope="col">Branch</th>
+            <th scope="col">Ref</th>
+            <th scope="col">Desc</th>
+
+
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <tr>
+            <th scope="row">1</th>
+            <td>Mechanic</td>
+            <td>1</td>
+            <td>All</td>
+            <td>UT-1</td>
+            <td>Make with Question Bank</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>DlCOA</td>
+            <td>3</td>
+            <td>Comp/AIML</td>
+            <td>Sem Exam</td>
+            <td>Rkdemy Class</td>
+          </tr>
+            {%for i in dataTable %}
+
+            <tr>
+                <td scope="row"><b><a href="{{i[6]}}">{{i[0]}}</a></b></td>
+                <td><a href="{{i[6]}}">{{i[3]}}</a></td>
+                <td>{{i[2]}}</td>
+                <td>{{i[1]}}</td>
+                <td>{{i[4]}}</td>
+                <td>{{i[5]}}</td>
+            </tr>
+
+        {%endfor%}
+        </tbody>
+    </table>
+
+
+<br>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination text-center mx-auto  justify-content-center">
+          <li class="page-item">
+            <a class="page-link " href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+
+
+      </nav>
+      <!--modallllllllllllll-->
+            <div class="modal fade" id="exampleModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Upload note</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="container">
+                <marquee direction="left" width="100%">Dev by Harshad & YashPal</marquee>  <hr><br>
+                <form method="post" enctype="multipart/form-data">
+                <div class="form-floating">
+                  <select class="form-select" name="program" id="program" aria-label="Floating label select example">
+                    <option selected>--Select--</option>
+                  </select>
+                  <label for="program">Select Program</label>
+                </div>
+                <br>
+                <div class="form-floating">
+                  <select class="form-select" name="sem" id="semester" aria-label="Floating label select example">
+                    <option selected>--Select--</option>
+                  </select>
+                  <label for="semester">Select Semester</label>
+                </div>
+                <br>
+                <div class="form-floating">
+                  <select class="form-select" id="sub" name="sub" aria-label="Floating label select example">
+                    <option selected>--Select--</option>
+                  </select>
+                  <label for="sub">Select Subject</label>
+                </div><br>
+                <div class="form-floating">
+                  <select class="form-select" aria-label="Floating label select example" name="ref" id="ref">
+                    <option>UT-1</option>
+                    <option>UT-2</option>
+                    <option>SEM</option>
+                    <option>ReferNote</option>
+                    <option>Important</option>
+                    <option>MyNotes</option>
+                  </select>
+                  <label for="ref">Refer For:</label>
+                </div>
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">Description:</label>
+                  <textarea name="descN" class="form-control" aria-label="Floating label" id="message-text"></textarea>
+                </div>
+                <div class="mb-3">
+                  <label for="formFile" class="form-label">Select Note</label>
+                  <input class="form-control" name="files" type="file" id="formFile">
+                </div>
+                <div id="course-list"> </div>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Upload</button>
+
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+  <script>
+      const courseData = {
+    "AIML": {
+        "Sem1": ["Math 1", "Physic 1", "Chemistry 1", "Bee", "Mech"],
+        "Sem2": ["Math 1", "Physic 2", "Chemistry 2", "E Graphic", "C Programing"],
+        "Sem3": ["Math 3", "DS", "DLCOA", "DSGT", "CG"],
+        "Sem4": ["Math 4", "Os", "AOA", "DS", "MP"]
+    }
+};
+
+const programSelect = document.getElementById('program');
+const semesterSelect = document.getElementById('semester');
+const courseList = document.getElementById('course-list');
+const sub = document.getElementById('sub');
+
+// Populate the Program dropdown
+for (const program in courseData) {
+    const option = document.createElement('option');
+    option.value = program;
+    option.text = program;
+    programSelect.add(option);
+}
+
+// Event listener for Program change
+programSelect.addEventListener('change', () => {
+    const selectedProgram = programSelect.value;
+    semesterSelect.innerHTML = '<option value="">--Select--</option>'; // Clear semester
+    var i=1;
+    if (selectedProgram) {
+        const semesters = courseData[selectedProgram];
+        for (const semester in semesters) {
+            const option = document.createElement('option');
+            option.value = i++;
+            option.text = semester;
+            semesterSelect.add(option);
+        }
+    }
+});
+
+// Event listener for Semester change
+semesterSelect.addEventListener('change', () => {
+    const selectedProgram = programSelect.value;
+    const selectedSemester = "Sem"+semesterSelect.value;
+    sub.innerHTML = '<option value="">--Select--</option>'; // Clear semester
+
+    if (selectedProgram && selectedSemester) {
+        const courses = courseData[selectedProgram][selectedSemester];
+        //courseList.innerHTML = '<h3>Courses:</h3><ul>'; // Clear and add header
+
+        courses.forEach(course => {
+           // const listItem = document.createElement('li');
+            const option = document.createElement('option');
+            //listItem.textContent = course;
+            option.text = course;
+            option.value = course;
+            sub.append(option)
+            //courseList.appendChild(listItem);
+        });
+
+        courseList.innerHTML += '</ul>'; // Close the <ul> tag
+    } else {
+        courseList.innerHTML = ''; // Clear courses
+    }
+});
+  </script>
+  <script>
+    var node;
+    var name="guest";
+    if("{{name}}" =="guest") {
+        node = document.getElementById('if-part');
+    }
+    else {
+        node = document.getElementById('else-part');
+    }
+   // node.style.visibility = 'visible';
+     node.style.display = 'block';
+
+    function open_win() {
+           window.open("/login")
+      }
+
+  </script>
+</html>
